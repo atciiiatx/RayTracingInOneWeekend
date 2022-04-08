@@ -33,3 +33,6 @@
 Cpp/.vs/
 Cpp/x64/
 .vs/
+Cpp/Chapter01/x64/
+*.ppm
+Cpp/Chapter02/x64/
