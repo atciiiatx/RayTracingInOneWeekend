@@ -6,7 +6,7 @@
 #include <type_traits>
 
 class Vector3D {
-public:
+ public:
   enum class Coordinate { X, Y, Z };
   Vector3D() : _elements({0, 0, 0}) {}
   Vector3D(float x, float y, float z) : _elements({x, y, z}) {}
@@ -46,7 +46,7 @@ public:
     return *this;
   }
 
-  Vector3D &operator*=(const Vector3D &other) {
+  Vector3D operator*=(const Vector3D &other) {
     setX(x() * other.x());
     setY(y() * other.y());
     setZ(z() * other.z());
@@ -78,14 +78,12 @@ public:
 
   Vector3D &cross(const Vector3D &other) {
     Vector3D v(y() * other.z() - z() * other.y(),
-                       z() * other.x() - x() * other.z(),
-                       x() * other.y() - y() * other.x());
+               z() * other.x() - x() * other.z(),
+               x() * other.y() - y() * other.x());
     return v;
   }
 
-  float length() const {
-      return std::sqrt(squaredLength());
-  }
+  float length() const { return std::sqrt(squaredLength()); }
 
   float squaredLength() const { return x() * x() + y() * y() + z() * z(); }
 
@@ -97,13 +95,13 @@ public:
   }
 
   Vector3D &operator-(const Vector3D &other) const {
-   Vector3D v(x() - other.x(), y() - other.y(), z() - other.z());
-   return v;
+    Vector3D v(x() - other.x(), y() - other.y(), z() - other.z());
+    return v;
   }
 
   Vector3D &operator*(const Vector3D &other) const {
-   Vector3D v(x() * other.x(), y() * other.y(), z() * other.z());
-   return v;
+    Vector3D v(x() * other.x(), y() * other.y(), z() * other.z());
+    return v;
   }
 
   Vector3D &operator/(const Vector3D &other) const {
@@ -123,13 +121,13 @@ public:
 
   static Vector3D unitVector(const Vector3D &v) { return v / v.length(); }
 
-protected:
+ protected:
   std::array<float, 3> _elements;
 };
 
-
-const Vector3D &operator*(float value, const Vector3D &v) {
-  return Vector3D(v.x() * value, v.y() * value, v.z() * value);
+const Vector3D operator*(float value, const Vector3D &v) {
+  Vector3D u(v.x() * value, v.y() * value, v.z() * value);
+  return u;
 }
 
 std::ifstream &operator<<(std::ifstream &is, Vector3D &v) {

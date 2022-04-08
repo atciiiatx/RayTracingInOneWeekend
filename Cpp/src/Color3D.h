@@ -3,7 +3,7 @@
 #include "Vector3D.h"
 
 class Color3D : Vector3D {
-public:
+ public:
   enum class ColorComponent { Red, Green, Blue };
   Color3D() : Vector3D() {}
   Color3D(const float r, const float g, const float b) : Vector3D(r, g, b) {}
