@@ -37,3 +37,7 @@ Cpp/Chapter01/x64/
 *.ppm
 Cpp/Chapter02/x64/
 *.png
+Cpp/ThirdParty/
+Cpp/Chapter03/x64/Debug/Chapter03.vcxproj.FileListAbsolute.txt
+Cpp/Chapter03/x64/Debug/Chapter03.Build.CppClean.log
+Cpp/Chapter03/x64/

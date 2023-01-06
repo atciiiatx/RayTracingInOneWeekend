@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <fstream>
-#include <iostream>
+
+#include <stdint.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -11,8 +10,7 @@ int main() {
   const int width = 800;
   const int height = 400;
   const int channels = 3;
-  uint8_t *pixels = new uint8_t[width * height * channels];
-  const int maxColor = 255;
+  auto pixels = new uint8_t[width * height * channels];
   int index = 0;
   for (int j = height - 1; j >= 0; --j) {
     for (int i = 0; i < width; ++i) {
